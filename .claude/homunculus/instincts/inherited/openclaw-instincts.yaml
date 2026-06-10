@@ -1,0 +1,683 @@
+# Instincts generated from https://github.com/ppakpoomm/openclaw
+# Generated: 2026-05-02T10:11:20.198Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: openclaw-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, refactor, perf, docs
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: refactor: parse session reads without manager, fix(gemini): reuse google provider config for web search
+
+---
+id: openclaw-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Commit Length
+
+## Action
+
+Keep commit messages concise (~45 characters)
+
+## Evidence
+
+- Average commit message length: 45 chars
+- Based on 100 commits
+
+---
+id: openclaw-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Naming Files
+
+## Action
+
+Use kebab-case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: kebab-case
+
+---
+id: openclaw-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: openclaw-test-colocate
+trigger: "when writing tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Test Colocate
+
+## Action
+
+Place test file next to the source file (e.g., Button.test.tsx next to Button.tsx)
+
+## Evidence
+
+- Colocated test pattern detected
+- Tests live alongside source files
+
+---
+id: openclaw-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: openclaw-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: openclaw-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: openclaw-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: yes
+
+---
+id: openclaw-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/**/*
+
+---
+id: openclaw-workflow-provider-extension-feature-or-fix
+trigger: "when doing provider extension feature or fix"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Workflow Provider Extension Feature Or Fix
+
+## Action
+
+Follow the provider-extension-feature-or-fix workflow:
+1. Edit or add implementation files in extensions/{provider}/src/
+2. Edit or add test files in extensions/{provider}/src/ or extensions/{provider}/
+3. Update or add documentation in docs/providers/{provider}.md, docs/tools/{tool}.md, or related docs/
+4. Update CHANGELOG.md
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: extensions/{provider}/src/*.ts, extensions/{provider}/*.test.ts, docs/providers/{provider}.md
+
+---
+id: openclaw-workflow-core-feature-or-fix-with-tests-and-changelog
+trigger: "when doing core feature or fix with tests and changelog"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Workflow Core Feature Or Fix With Tests And Changelog
+
+## Action
+
+Follow the core-feature-or-fix-with-tests-and-changelog workflow:
+1. Edit or add implementation files in src/agents/, src/plugins/, src/gateway/, etc.
+2. Edit or add test files in the same directory (matching *.test.ts or similar).
+3. Update CHANGELOG.md
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: src/agents/**/*.ts, src/plugins/**/*.ts, src/gateway/**/*.ts
+
+---
+id: openclaw-workflow-ci-or-release-workflow-update
+trigger: "when doing ci or release workflow update"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Workflow Ci Or Release Workflow Update
+
+## Action
+
+Follow the ci-or-release-workflow-update workflow:
+1. Edit or add .github/workflows/*.yml files
+2. Edit or add scripts/ or test/scripts/ files
+3. Update related documentation in docs/ci.md, docs/reference/RELEASING.md, AGENTS.md, etc.
+4. Update package.json if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: .github/workflows/*.yml, scripts/*.ts, test/scripts/*.ts
+
+---
+id: openclaw-workflow-plugin-cache-or-registry-refactor
+trigger: "when doing plugin cache or registry refactor"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Workflow Plugin Cache Or Registry Refactor
+
+## Action
+
+Follow the plugin-cache-or-registry-refactor workflow:
+1. Edit or add implementation files in src/plugins/ (cache, registry, loader, etc.)
+2. Edit or add corresponding test files (*.test.ts) in src/plugins/
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/plugins/*cache*.ts, src/plugins/*registry*.ts, src/plugins/loader*.ts
+
+---
+id: openclaw-workflow-extension-package-batch-update
+trigger: "when doing extension package batch update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ppakpoomm/openclaw
+---
+
+# Openclaw Workflow Extension Package Batch Update
+
+## Action
+
+Follow the extension-package-batch-update workflow:
+1. Edit package.json files in multiple extensions/*/ directories
+2. Update CHANGELOG.md
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: extensions/*/package.json, CHANGELOG.md
+
+---
+id: openclaw-instinct-file-naming
+trigger: "When creating or renaming a file."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct File Naming
+
+## Action
+
+Use kebab-case for file names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+- Consistent kebab-case in src/ and extensions/
+
+---
+id: openclaw-instinct-function-naming
+trigger: "When defining a function."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Function Naming
+
+## Action
+
+Use camelCase for function names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: openclaw-instinct-class-naming
+trigger: "When defining a class."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: openclaw-instinct-constant-naming
+trigger: "When defining a constant."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: openclaw-instinct-import-style
+trigger: "When importing modules."
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Import Style
+
+## Action
+
+Use a mixed import style as appropriate (named and default).
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: openclaw-instinct-export-style
+trigger: "When exporting modules."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Export Style
+
+## Action
+
+Prefer named exports.
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: openclaw-instinct-test-file-pattern
+trigger: "When creating a test file."
+confidence: 0.95
+domain: testing
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Test File Pattern
+
+## Action
+
+Name the file with a .test.ts suffix.
+
+## Evidence
+
+- Pattern in testing.filePattern
+- Examples in src/agents/subagent-registry-lifecycle.test.ts
+
+---
+id: openclaw-instinct-test-framework
+trigger: "When writing tests."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Test Framework
+
+## Action
+
+Use the Vitest framework.
+
+## Evidence
+
+- Pattern in testing.framework
+- Presence of vi.mock in test files
+
+---
+id: openclaw-instinct-test-mocking
+trigger: "When mocking dependencies in tests."
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Test Mocking
+
+## Action
+
+Use vi.mock for mocking.
+
+## Evidence
+
+- Pattern in testing.mockingStyle
+
+---
+id: openclaw-instinct-test-coverage
+trigger: "When configuring tests."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Test Coverage
+
+## Action
+
+Enable coverage configuration.
+
+## Evidence
+
+- Pattern in testing.coverageConfig
+
+---
+id: openclaw-instinct-test-types
+trigger: "When planning tests."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Test Types
+
+## Action
+
+Include unit, integration, and e2e tests as appropriate.
+
+## Evidence
+
+- Pattern in testing.testTypes
+
+---
+id: openclaw-instinct-commit-format
+trigger: "When writing a commit message."
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Commit Format
+
+## Action
+
+Use Conventional Commits format with prefixes like fix, refactor, perf, docs, build, ci.
+
+## Evidence
+
+- Pattern in commits.type: conventional
+- Examples: fix(gemini): reuse google provider config for web search
+- refactor: parse session reads without manager
+
+---
+id: openclaw-instinct-commit-length
+trigger: "When writing a commit message."
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Commit Length
+
+## Action
+
+Keep commit messages concise (average ~45 characters).
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: openclaw-instinct-provider-extension-workflow
+trigger: "When someone wants to add or fix a feature for a provider extension (e.g., web search, messaging, etc.)."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Provider Extension Workflow
+
+## Action
+
+Edit or add implementation files in extensions/{provider}/src/, add or update tests in extensions/{provider}/, update or add docs in docs/providers/{provider}.md or docs/tools/{tool}.md, and update CHANGELOG.md.
+
+## Evidence
+
+- Workflow: provider-extension-feature-or-fix
+- Example commits and files in workflow definition
+
+---
+id: openclaw-instinct-core-feature-workflow
+trigger: "When someone wants to add or fix a feature in core OpenClaw logic (agents, plugins, gateway, etc.)."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Core Feature Workflow
+
+## Action
+
+Edit or add implementation files in src/agents/, src/plugins/, src/gateway/, etc.; add or update tests in the same directory; update CHANGELOG.md.
+
+## Evidence
+
+- Workflow: core-feature-or-fix-with-tests-and-changelog
+- Example commits and files in workflow definition
+
+---
+id: openclaw-instinct-ci-release-workflow
+trigger: "When someone wants to change CI validation, release process, or workflow automation."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Ci Release Workflow
+
+## Action
+
+Edit or add .github/workflows/*.yml, scripts/, or test/scripts/ files; update related docs (docs/ci.md, docs/reference/RELEASING.md, AGENTS.md); update package.json if needed.
+
+## Evidence
+
+- Workflow: ci-or-release-workflow-update
+- Example commits and files in workflow definition
+
+---
+id: openclaw-instinct-plugin-cache-refactor-workflow
+trigger: "When someone wants to improve or refactor plugin cache/registry internals."
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Plugin Cache Refactor Workflow
+
+## Action
+
+Edit or add implementation files in src/plugins/ (cache, registry, loader, etc.); add or update corresponding test files (*.test.ts) in src/plugins/.
+
+## Evidence
+
+- Workflow: plugin-cache-or-registry-refactor
+- Example commits and files in workflow definition
+
+---
+id: openclaw-instinct-extension-package-batch-update-workflow
+trigger: "When someone wants to prepare a batch of extensions for release or dependency update."
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: ppakpoomm/openclaw
+---
+
+# Openclaw Instinct Extension Package Batch Update Workflow
+
+## Action
+
+Edit package.json files in multiple extensions/*/ directories; update CHANGELOG.md.
+
+## Evidence
+
+- Workflow: extension-package-batch-update
+- Example commits and files in workflow definition
+
